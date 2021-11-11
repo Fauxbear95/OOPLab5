@@ -23,42 +23,52 @@ namespace Psim
 			rData.BI = 1.2e-45;
 			rData.W = 2.42e13;
 
-			Material silicon = new Material(in dData, in rData);
+			Material silicon = new (in dData, in rData);
 
-			Sensor s1 = new Sensor(1, silicon, 300);
-			Cell c1 = new Cell(10, 10, s1);
-			Sensor s2 = new Sensor(2, silicon, 300);
-			Cell c2 = new Cell(1, 1, s2);
+			// Test the AddSensor, AddCell and SetSurfaces implementations. 
 
-			c1.SetEmitSurface(SurfaceLocation.left, c1, 300);
-			c1.SetEmitSurface(SurfaceLocation.right, c1, 300);
-			c1.SetEmitSurface(SurfaceLocation.bot, c1, 300);
-			c1.EmitEnergy(300, 1);
+			Model model = new(silicon, 4000, 100, 30);
 
-            // Test transition surface (HandlePhonon)
-            Console.WriteLine("\t\t***Testing Transition Surface***");
-			Phonon p1 = new Phonon(1);
-			double px = 10;
-			p1.SetCoords(px, 1);
-            Console.WriteLine($"Position before Transition Surface: {px}");
-			TransitionSurface ts = new TransitionSurface(SurfaceLocation.right, c2);
-			Cell c3 = ts.HandlePhonon(p1);
-			p1.GetCoords(out px, out double py);
-            Console.WriteLine($"Position after Transition Surface: {px}");
-            Console.WriteLine($"New Cell: {c3}");
+			int numCells = 10;
+			for (int i = 0; i < numCells; ++i)
+			{
+				model.AddSensor(i, 400);
+				model.AddCell(10, 10, i);
+			}
 
-            // Test emit surface (HandlePhonon)
-            Console.WriteLine("\n\n\t\t***Testing Emit Surface***");
-			Phonon p2 = new Phonon(1);
-			p2.DriftTime = 10;
-            Console.WriteLine("Phonon properties prior to emit surface collision");
-            Console.WriteLine($"Active: {p2.Active}");
-            Console.WriteLine($"Drift Time: {p2.DriftTime}");
-            TransitionSurface.EmitSurface es = new TransitionSurface.EmitSurface(SurfaceLocation.left, c1, 300);
-			es.HandlePhonon(p2);
-            Console.WriteLine("Phonon properties after to emit surface collision");
-			Console.WriteLine($"Active: {p2.Active}");
-			Console.WriteLine($"Drift Time: {p2.DriftTime}");
+			// Display cell surface types
+			Console.WriteLine("Surfaces before setting them\n");
+			PrintSurfaceAllocations(model);
+
+			model.SetSurfaces(200);
+			model.SetEmitPhonons(300, 3, 5e-9);
+
+			// Display sensor and cell info
+			Console.WriteLine("\n\n" + model);
+
+			// Display cell surface types again after assignment
+			Console.WriteLine("Surfaces after setting them\n");
+			PrintSurfaceAllocations(model);
+
+			// Calling add sensor and add cell methods and then displaying the changes
+			model.AddSensor(model.sensors.Count, 310);
+			model.AddCell(10, 10, model.cells.Count);
+			model.SetSurfaces(300);
+
+			Console.WriteLine("\n\nAdded new sensor and cell\n");
+			Console.WriteLine(model);
+			PrintSurfaceAllocations(model);
+		}
+
+		private static void PrintSurfaceAllocations(Model model)
+		{
+			Console.Write(String.Format("{0, -5} {1, 25} {2, 40}\n\n", "Cell", "Left Surface", "Right Surface"));
+
+			int cellNum = 1;
+			foreach (Cell cell in model.cells)
+			{
+				Console.Write(String.Format("{0, -5} {1, -40} {2, -50}\n", cellNum++, cell.GetSurface(SurfaceLocation.left), cell.GetSurface(SurfaceLocation.right)));
+			}
 		}
 	}
 }

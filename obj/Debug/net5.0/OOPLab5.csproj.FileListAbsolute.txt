@@ -5,7 +5,6 @@ C:\Users\danie\source\repos\OOPLab5\bin\Debug\net5.0\OOPLab5.runtimeconfig.dev.j
 C:\Users\danie\source\repos\OOPLab5\bin\Debug\net5.0\OOPLab5.dll
 C:\Users\danie\source\repos\OOPLab5\bin\Debug\net5.0\ref\OOPLab5.dll
 C:\Users\danie\source\repos\OOPLab5\bin\Debug\net5.0\OOPLab5.pdb
-C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.csprojAssemblyReference.cache
 C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.AssemblyInfoInputs.cache
 C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.AssemblyInfo.cs
@@ -14,3 +13,6 @@ C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.dll
 C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\ref\OOPLab5.dll
 C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.pdb
 C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.genruntimeconfig.cache
+C:\Users\danie\source\repos\OOPLab5\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.csproj.AssemblyReference.cache
+C:\Users\danie\source\repos\OOPLab5\obj\Debug\net5.0\OOPLab5.csproj.CopyComplete

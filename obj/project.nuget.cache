@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wVVBhsABzbtC/fP5TodjTADwOWGrK8Xw13M/kJEgyhT7Avepql8gMTEI0JGm57mRbVMeOIpvGRAf6FaqjhjmYw==",
+  "dgSpecHash": "kIbhQehxBp7p6M+FJMEuaFpBqs2Rzu/uNlpibol9WsSWwii/ip2TPMu0Ngj0ujLd6gRf7flY9jcaQrnD7sxN3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\danie\\source\\repos\\OOPLab5\\OOPLab5.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\danie\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
